@@ -27,11 +27,10 @@ public class HipoteseDiagnosticoBL {
 	}
 
 	public void desativar(int id) {
-
+		//TODO: logica para desativar
 	}
 
 	public boolean validar(HipoteseDiagnostico hipoteseDiagnostico) {
 		return false;
 	}
-
 }
