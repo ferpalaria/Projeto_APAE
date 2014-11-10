@@ -4,6 +4,8 @@ import java.util.List;
 
 import apae.entities.Funcionario;
 
+//uhuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuul!
+
 public class FuncionarioDAL {
 
 	private ConexaoFactory conexaoFactory;
