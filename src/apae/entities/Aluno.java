@@ -194,5 +194,4 @@ public class Aluno extends Pessoa {
 	public void setRelatorio(Collection<Relatorio> relatorio) {
 		this.relatorio = relatorio;
 	}
-	//comentario
 }
