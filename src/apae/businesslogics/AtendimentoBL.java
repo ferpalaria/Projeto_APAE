@@ -15,8 +15,11 @@ import apae.entities.TipoAtendimento;
 public class AtendimentoBL {
 
 	private TipoAtendimentoDAL tipoAtendimentoDAL;
+	
+	private AlunoBL alunoBL;
 	private AlunoDAL alunoDAL;
 	private AtendimentoDAL atendimentoDAL;
+	
 	private ErroModel erroModel;
 	
 	public AtendimentoBL(){
@@ -28,7 +31,6 @@ public class AtendimentoBL {
 	}
 	
 	public ErroModel getErroModel(){
-		
 		return erroModel;
 	}
 

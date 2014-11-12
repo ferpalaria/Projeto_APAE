@@ -11,6 +11,8 @@ import apae.entities.TipoAtendimento;
 
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
 public class AtendimentoMBean {
 
 	private Atendimento atendimento;
@@ -36,33 +38,39 @@ public class AtendimentoMBean {
 	public String salvar() {
 		
 		if(atendimentoBL.validar(atendimento)){
-			
 			if(atendimento.getIdAtendimento() == 0){
-				
-				// 
+				atendimentoBL.inserir(atendimento);
+			}
+			else{
+				atendimentoBL.atualizar(atendimento);
 			}
 			
+			return "Pagina de listar Atendimento";
 		}
-		return "xhtml file";
+		else{
+			FacesContext facesContexto = FacesContext.getCurrentInstance();
+			atendimentoBL.getErroModel().toFacesContext(facesContexto);
+			
+			return "";
+		}
 	}
 
 	public String editar(int id) {
-		
 		atendimento = atendimentoBL.get(id);
-		
-		return null;
+		return "Pagina de cadastro";
 	}
 
 	public String visualizar(int id) {
-		return null;
+		atendimento  = atendimentoBL.get(id);
+		return "Pagina XHTML";
 	}
 
 	public List<TipoAtendimento> getTiposAtendimento() {
-		return null;
+		return atendimentoBL.getTiposAtendimento();
 	}
 
 	public List<Aluno> getAlunos() {
-		return null;
+		return atendimentoBL.getAlunos(filtroAluno);
 	}
 
 }
