@@ -5,6 +5,8 @@ import apae.businesslogics.CargoBL;
 
 import java.util.List;
 
+import javax.faces.context.FacesContext;
+
 import utils.ErroModel;
 
 public class CargoMBean {
@@ -39,10 +41,11 @@ public class CargoMBean {
 			return "pagina de listar cargos";
 		}
 		else{
-						
+			FacesContext facesContext = FacesContext.getCurrentInstance();
+			cargoBL.getErroModel().toFacesContext(facesContext);
+			
+			return "";
 		}
-
-		return null;
 	}
 
 	public String editar(int id) {
@@ -52,11 +55,13 @@ public class CargoMBean {
 		 * cargo = cargoBL.get(id);
 		 * return "xhtml de cadastro";
 		 * */
-		return null;
+		
+		cargo = cargoBL.get(id);
+		return "";
 	}
 
 	public String desativar(int id) {
-		return null;
+		return "";
 	}
 
 }

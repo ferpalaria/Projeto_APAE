@@ -4,12 +4,19 @@ import apae.data.CargoDAL;
 
 import java.util.List;
 
+import utils.ErroModel;
 import apae.entities.Cargo;
 
 public class CargoBL {
 
 	private CargoDAL cargoDAL;
-
+	
+	private ErroModel erroModel;
+	
+	public ErroModel getErroModel(){
+		return erroModel;
+	}
+	
 	public List<Cargo> listar() {
 		return null;
 	}
