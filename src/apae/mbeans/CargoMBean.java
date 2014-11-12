@@ -5,19 +5,43 @@ import apae.businesslogics.CargoBL;
 
 import java.util.List;
 
-public class CargoMBean {
+import utils.ErroModel;
 
+public class CargoMBean {
+	
+	private ErroModel erroModel;
+	
 	private Cargo cargo;
 
 	private CargoBL cargoBL;
-
+	
+	public CargoMBean(){
+		cargo = new Cargo();
+		cargoBL = new CargoBL();
+		erroModel = new ErroModel();
+	}
+	
 	public List<Cargo> getLista() {
-		return null;
+		return cargoBL.listar();
 	}
 
 	public String salvar() {
 		//TODO: aqui deve-se verificar o id, se for 0 então indica que tem que inserir, 
 		//      caso contrario, tem atualizar
+		
+		if(cargoBL.validar(cargo)){
+			if(cargo.getIdCargo() == 0){
+				cargoBL.inserir(cargo);
+			}
+			else{
+				cargoBL.atualizar(cargo);
+			}
+			return "pagina de listar cargos";
+		}
+		else{
+						
+		}
+
 		return null;
 	}
 

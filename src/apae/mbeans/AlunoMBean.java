@@ -1,11 +1,12 @@
 package apae.mbeans;
 
 import apae.entities.Aluno;
+import apae.entities.HipoteseDiagnostico;
+import apae.entities.Projeto;
+import apae.entities.Sala;
 import apae.businesslogics.AlunoBL;
-
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 public class AlunoMBean {
@@ -21,7 +22,7 @@ public class AlunoMBean {
 		alunoBL = new AlunoBL();
 	}
 
-	public List getLista() {
+	public List<Aluno> getLista() {
 		
 		return alunoBL.listar(filtro);
 	}
@@ -43,30 +44,28 @@ public class AlunoMBean {
 		}else{
 			
 			FacesContext facesContext = FacesContext.getCurrentInstance();
-			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Não foi possivel salvar","Tente novamente"));
+			alunoBL.getErroModel().toFacesContext(facesContext);
 			
 			return "";
 		}
 	}
 
 	public String editar(int id) {
-		
 		aluno = alunoBL.get(id);
 				
 		return null;
 	}
 
-	public List getProjetos() {
-		return null;
+	public List<Projeto> getProjetos() {
+		return alunoBL.getProjetos();
 	}
 
-	public List getSalas() {
-		return null;
+	public List<Sala> getSalas() {
+		return alunoBL.getSalas();
 	}
 
-	public List getHipotesesDiagnostico() {
-		return null;
+	public List<HipoteseDiagnostico> getHipotesesDiagnostico() {
+		return alunoBL.getHipotesesDiagnostico();
 	}
 
 }
