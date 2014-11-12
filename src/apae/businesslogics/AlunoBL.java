@@ -16,13 +16,9 @@ import apae.entities.Sala;
 public class AlunoBL {
 
 	private HipoteseDiagnosticoDAL hipoteseDiagnosticoDAL;
-	
 	private ProjetoDAL projetoDAL;
-	
 	private SalaDAL salaDAL;
-	
 	private AlunoDAL alunoDAL;
-	
 	private ErroModel erroModel;
 	
 	public AlunoBL(){
@@ -58,13 +54,16 @@ public class AlunoBL {
 	public boolean validar(Aluno aluno) {
 		
 		if(aluno.getNome() == null || aluno.getNome().trim().isEmpty()){
-			erroModel.add("nome", "O campo nome é obrigatório.");
+	
+			erroModel.add("nome", "O campo nome ï¿½ obrigatï¿½rio.");
+		
 		}else if(aluno.getNome().length() < 3 || aluno.getNome().length() > 80){
-			erroModel.add("nome", "O campo nome dever conter de 3 à 80 caracteres.");
+		
+			erroModel.add("nome", "O campo nome dever conter de 3 ï¿½ 80 caracteres.");
 		}
 		
 		if(aluno.getCpf() == null || aluno.getCpf().trim().isEmpty()){
-			erroModel.add("cpf", "O campo cpf é obrigatório.");
+			erroModel.add("cpf", "O campo cpf ï¿½ obrigatï¿½rio.");
 		}
 		
 		return erroModel.isValido();
