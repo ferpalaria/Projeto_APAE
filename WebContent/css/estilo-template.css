@@ -13,7 +13,7 @@ ESTILIZA√á√ÉO TEMPLATE
 .siderbar{
 	padding-top: 10px;
 	padding-left: 0;
-	padding-right: 5px;
+	padding-right: 15px;
 	margin-bottom: 10px;
 }
 .content_all{
@@ -68,3 +68,37 @@ ul#menuGeral .conteudoMenu a:hover{
 	text-align: center;
 	font-weight: bold;
 }
+/**=======================
+FIM DA ESTILIZA«√O DO
+TEMPLATE
+=======================**/
+
+/**=======================
+ESTILIZA«√O DA P¡GINA 
+PRINCIPAL
+=======================**/
+
+.title_principal{
+	font-weight: bold;
+	color: balck
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
