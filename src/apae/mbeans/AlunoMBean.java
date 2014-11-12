@@ -44,7 +44,7 @@ public class AlunoMBean {
 			
 			FacesContext facesContext = FacesContext.getCurrentInstance();
 			facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Não foi possível salvar","Tente novamente"));
+					"N�o foi possivel salvar","Tente novamente"));
 			
 			return "";
 		}
