@@ -7,6 +7,9 @@ import apae.businesslogics.FuncionarioBL;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 public class FuncionarioMBean {
 
 	private Funcionario funcionario;
@@ -31,9 +34,14 @@ public class FuncionarioMBean {
 			funcionarioBL.atualizar(funcionario);
 		}	
 		return "nome xhtml listagem";
-	}
+	}else{
 		
-		return null;
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+				"Não foi possivel salvar","Tente novamente"));
+		
+		return "";
+	}
 	}
 
 	public String editar(int id) {
@@ -43,6 +51,8 @@ public class FuncionarioMBean {
 
 	public List<Cargo> getCargos() {
 		return null;
+		
+		
 	}
 
 }
