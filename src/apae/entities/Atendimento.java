@@ -5,17 +5,11 @@ import java.util.Date;
 public class Atendimento {
 
 	private int idAtendimento;
-
 	private String descricao;
-
-	private Date dataAtendimento;
-
+	private Date dataAtendimento; 
 	private Date dataCadastro;
-
-	private TipoAtendimento tipoAtendimento;
-
-	private Aluno aluno;
-
+	private TipoAtendimento tipoAtendimento; 
+	private Aluno aluno; 
 	private Funcionario funcionario;
 
 	public int getIdAtendimento() {

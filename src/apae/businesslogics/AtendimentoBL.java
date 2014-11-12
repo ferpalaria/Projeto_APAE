@@ -15,7 +15,6 @@ import apae.entities.TipoAtendimento;
 public class AtendimentoBL {
 
 	private TipoAtendimentoDAL tipoAtendimentoDAL;
-	private AlunoBL alunoBL;
 	private AlunoDAL alunoDAL;
 	private AtendimentoDAL atendimentoDAL;
 	private ErroModel erroModel;
@@ -23,7 +22,6 @@ public class AtendimentoBL {
 	public AtendimentoBL(){
 		
 		tipoAtendimentoDAL = new TipoAtendimentoDAL();
-		alunoBL = new AlunoBL();
 		alunoDAL = new AlunoDAL();
 		atendimentoDAL = new AtendimentoDAL();
 		erroModel = new ErroModel();
@@ -53,7 +51,36 @@ public class AtendimentoBL {
 
 	public boolean validar(Atendimento atendimento) {
 		
-		return false;
+		if(atendimento.getTipoAtendimento() == null ||
+				atendimento.getTipoAtendimento().getIdTipoAtendimento() == 0){
+			
+			erroModel.add("tipoAtendimento", "Esse campo deve ser obrigatorio");
+		}
+		
+		if(atendimento.getDataAtendimento() == null){
+			
+			erroModel.add("dataAtendimento", "O data atendimento é obrigatório");
+		}
+		
+		if(atendimento.getAluno() == null || 
+				atendimento.getAluno().getIdPessoa() == 0){
+			
+			erroModel.add("aluno", "O campo aluno deve ser obrigatório");	
+		}
+		
+		if(atendimento.getDescricao() == null ||
+				atendimento.getDescricao().trim().length() == 0){
+			
+			erroModel.add("descricao", "O campo descrição deve ser obrigatório");	
+		
+		}else if(atendimento.getDescricao().length() > 3000){
+			
+			erroModel.add("descricao", "O campo descrição deve conter "
+					+ "um número abaixo de 3000 caracteres");			
+			
+		}
+		
+		return erroModel.isValido();
 	}
 
 	public List<TipoAtendimento> getTiposAtendimento() {
