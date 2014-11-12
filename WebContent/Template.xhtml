@@ -25,7 +25,8 @@
 		</div>
 	</ui:insert>
 	<!-- end topo -->
-		
+	
+	<ui:insert name="siderbarEcontent">	
 	<!-- siderbar e content -->
 		<div class="row">
 			<!-- siderbar -->
@@ -61,9 +62,9 @@
 				</div>
 			</ui:insert>
 			<!--Fim content_all -->
-			
 		</div>
 		<!-- end siderbar and content -->
+		</ui:insert>
 		
 		<!-- footer -->
 		<ui:insert name="footer">
@@ -85,7 +86,7 @@
         $(".conteudoMenu").hide();
         $(".itemMenu").click(function(){
             $(".conteudoMenu").slideUp("slow");
-            $(this).next(".conteudoMenu").slideDown("slow");
+            $(this).next(".conteudoMenu").slideDown("slow");            
         });
     });
 </script>

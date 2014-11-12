@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="Template.xhtml">
+	<ui:define name="siderbarEcontent">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="login">
+					<div class="panel panel-default">
+						<div class="panel-heading title_login">LOGIN</div>
+							<div class="panel-body">
+								<form role="form">
+									<div class="form-group">
+										<label for="InputEmail">Usuário</label>
+										<input type="text" class="form-control" id="InputEmail" placeholder="Usuário" />
+									</div>
+									<div class="form-group">
+										<label for="InputSenha">Senha</label>
+										<input type="password" class="form-control" id="InputSenha" placeholder="Senha" />
+									</div>
+									<button type="submit" class="btn btn-primary" value="">Entrar</button>
+								</form>
+							</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</ui:define>
+	
+	<ui:define name="footer">
+	
+	</ui:define>		
+</ui:composition>
+
+</html>

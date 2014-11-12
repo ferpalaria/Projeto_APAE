@@ -82,11 +82,25 @@ PRINCIPAL
 	font-weight: bold;
 	color: balck
 }
+/**=======================
+ FIM DA ESTILIZA플O DA 
+P핯INA PRINCIPAL
+=======================**/
 
-
-
-
-
+/**=======================
+ESTILIZA플O DA P핯INA 
+INDEX
+=======================**/
+.login{
+	margin-top:15px;
+}
+.title_login{
+	font-weight: bold;
+}
+/**=======================
+FIM DA ESTILIZA플O DA  
+P핯INA INDEX
+=======================**/
 
 
 
