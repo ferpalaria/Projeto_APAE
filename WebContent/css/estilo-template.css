@@ -3,10 +3,68 @@ ESTILIZAÇÃO TEMPLATE
 =======================**/
 
 .topo{
+	height: 150px;
+	background-image:url(../img/fundo_topo.png);
+	background-repeat:no-repeat;
+	border-bottom: 2px solid #004C66;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
 }
 .siderbar{
+	padding-top: 10px;
+	padding-left: 0;
+	padding-right: 5px;
+	margin-bottom: 10px;
 }
 .content_all{
+	border-left: thin solid #ccc;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .footer{
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	color: #EBEBEB;
+	background-color: #227ED2;
+}
+ul#menuGeral{
+ 	margin:0px;
+ 	padding:0px;
+ 	list-style:none;
+}
+ul#menuGeral li{
+}
+/*-Para todos os atributos 'a', aqui será a marcação da sanfona-*/
+ul#menuGeral a{
+	display:block;
+	padding:4px;
+	cursor:pointer;
+	color:#004C66;
+	text-decoration:none;
+}
+/*-Para todos os atributos 'a' dentro de uma 'li'-*/
+ul#menuGeral li a{
+}
+/*-O conteudo que fica debaixo da opção da sanfona-*/
+ul#menuGeral .conteudoMenu{
+ 	padding:5px;
+ 	border-bottom: thin solid #ccc;
+	border-left: thin solid #ccc;
+	border-right: thin solid #ccc;
+ 	margin-bottom: 1px;
+}
+ul#menuGeral .conteudoMenu a{
+	margin-bottom:0px;
+	border:0px;
+}
+ul#menuGeral .conteudoMenu a:hover{
+	color: #2894FF;
+}
+.itemMenu{
+	display: block;
+	border: thin solid #ccc;
+	background-color: #F4F4F4;
+	text-align: center;
+	font-weight: bold;
 }

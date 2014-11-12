@@ -7,37 +7,70 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title><ui:insert name="title">Template </ui:insert>Projeto APAE</title>
+	<title><ui:insert name="title">Template </ui:insert> Projeto APAE</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
 	<link rel="stylesheet" type="text/css" href="css/estilo-template.css"></link>
 </h:head>
 
 <h:body>
-	
+<ui:insert name="container">
 	<div class="container">
 		
-		<!-- topo -->
+	<!-- topo -->
+	<ui:insert name="topo">	
 		<div class="row">
-			<div class="col-md-12 topo"></div>
+			<div class="col-md-12 topo">
+				<img src="img/logo_apae.jpg" alt="APAE - Jaguariúna - SP" width="250" height="145" />
+			</div>
 		</div>
-		<!-- end topo -->
+	</ui:insert>
+	<!-- end topo -->
 		
-		<!-- siderbar e content -->
+	<!-- siderbar e content -->
 		<div class="row">
-			<div class="col-md-3 siderbar">
-				
-			</div>
-		
-			<div class="col-md-9 content_all">
+			<!-- siderbar -->
+			<ui:insert name="siderbar">
+					<div class="col-md-2 siderbar">		
+							<ul id="menuGeral">
+    							<!-- Item 1 -->
+    								<li><a href="#" class="itemMenu">Aluno</a>
+        								<div class="conteudoMenu">
+             								<a href="#">Cadastrar aluno</a>
+             								<a href="#">Listar aluno</a>
+        								</div>
+     								</li>
+     							<!--Fim Item 1 -->	
+     				
+     							<!-- Item 2 -->
+     								<li><a href="#" class="itemMenu">Atendimento</a>
+         								<div class="conteudoMenu">
+            								<a href="#">Novo atendimento</a>
+            								<a href="#">Listar atendimentos</a>
+         								</div>
+     								</li>
+     							<!--Fim Item 2 -->
+							</ul>	
+					</div>
+			</ui:insert>
+			<!--fim siderbar -->
 			
-			</div>
+			<!-- content_all -->
+			<ui:insert name="content_all">
+				<div class="col-md-10 content_all">
+			
+				</div>
+			</ui:insert>
+			<!--Fim content_all -->
+			
 		</div>
 		<!-- end siderbar and content -->
 		
 		<!-- footer -->
-		<div class="row">
-			<div class="col-md-12 footer">APAE - Jaguariúna - SP</div>
-		</div>
+		<ui:insert name="footer">
+			<div class="row">
+				<div class="col-md-12 footer">APAE - Jaguariúna - SP</div>
+			</div>
+		</ui:insert>
 		<!-- end footer-->
 		
 	</div>
@@ -47,5 +80,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $(".conteudoMenu").hide();
+        $(".itemMenu").click(function(){
+            $(".conteudoMenu").slideUp("slow");
+            $(this).next(".conteudoMenu").slideDown("slow");
+        });
+    });
+</script>
+</ui:insert>
 </h:body>
 </html>
