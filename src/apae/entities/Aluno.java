@@ -6,31 +6,18 @@ import java.util.Collection;
 public class Aluno extends Pessoa {
 
 	private int numCertidaoNascimento;
-
 	private int numCartaoCidadao;
-
 	private Date dataMatricula;
-
 	private String padrinho;
-
 	private String telefonePadrinho;
-
 	private String emailPadrinho;
-
 	private boolean bolsaFamilia;
-
 	private boolean segunda;
-
 	private boolean terca;
-
 	private boolean quarta;
-
 	private boolean quinta;
-
 	private boolean sexta;
-
 	private boolean frequenciaRegular;
-
 	private boolean ativo;
 
 	private Collection<Projeto> projeto;

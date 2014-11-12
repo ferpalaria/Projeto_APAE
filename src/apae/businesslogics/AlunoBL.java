@@ -15,19 +15,26 @@ import apae.entities.Sala;
 public class AlunoBL {
 
 	private HipoteseDiagnosticoDAL hipoteseDiagnosticoDAL;
-
 	private ProjetoDAL projetoDAL;
-
 	private SalaDAL salaDAL;
-
 	private AlunoDAL alunoDAL;
+	
+	public AlunoBL(){
+		
+		hipoteseDiagnosticoDAL = new HipoteseDiagnosticoDAL();
+		projetoDAL = new ProjetoDAL();
+		salaDAL = new SalaDAL();
+		alunoDAL = new AlunoDAL();
+		
+	}
 
 	public List<Aluno> listar(Aluno filtro) {
 		return null;
 	}
 
 	public Aluno get(int id) {
-		return null;
+		
+		return alunoDAL.get(id); 
 	}
 
 	public void inserir(Aluno aluno) {
@@ -43,15 +50,18 @@ public class AlunoBL {
 	}
 
 	public List<Projeto> getProjetos() {
-		return null;
+		
+		return projetoDAL.listar();
 	}
 
 	public List<Sala> getSalas() {
-		return null;
+		
+		return salaDAL.listar(); 
 	}
 
 	public List<HipoteseDiagnostico> getHipotesesDiagnostico() {
-		return null;
+	
+		return hipoteseDiagnosticoDAL.listar();
 	}
 
 }
