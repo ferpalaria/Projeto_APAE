@@ -53,7 +53,7 @@ public class AlunoMBean {
 	public String editar(int id) {
 		aluno = alunoBL.get(id);
 				
-		return null;
+		return "Pagina de cadastro";
 	}
 
 	public List<Projeto> getProjetos() {
