@@ -3,9 +3,7 @@ package apae.entities;
 public class Cargo {
 
 	private int idCargo;
-
 	private String nome;
-
 	private boolean ativo;
 
 	public int getIdCargo() {
@@ -17,6 +15,7 @@ public class Cargo {
 	}
 
 	public String getNome() {
+		
 		return nome;
 	}
 
@@ -25,10 +24,12 @@ public class Cargo {
 	}
 
 	public boolean isAtivo() {
+		
 		return ativo;
 	}
 
 	public void setAtivo(boolean ativo) {
+	
 		this.ativo = ativo;
 	}
 
