@@ -11,7 +11,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 public class FuncionarioMBean {
-//test save
+
 	private Funcionario funcionario;
 	private Funcionario filtro;
 	private FuncionarioBL funcionarioBL;
