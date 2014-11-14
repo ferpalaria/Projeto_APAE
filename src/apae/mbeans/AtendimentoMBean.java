@@ -3,8 +3,6 @@ package apae.mbeans;
 import apae.businesslogics.AtendimentoBL;
 
 import java.util.Date;
-
-import apae.data.AtendimentoDAL;
 import apae.entities.Aluno;
 import apae.entities.Atendimento;
 import apae.entities.TipoAtendimento;

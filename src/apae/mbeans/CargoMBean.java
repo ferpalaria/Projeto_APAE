@@ -7,12 +7,8 @@ import java.util.List;
 
 import javax.faces.context.FacesContext;
 
-import utils.ErroModel;
-
 public class CargoMBean {
-	
-	private ErroModel erroModel;
-	
+
 	private Cargo cargo;
 
 	private CargoBL cargoBL;
@@ -20,7 +16,6 @@ public class CargoMBean {
 	public CargoMBean(){
 		cargo = new Cargo();
 		cargoBL = new CargoBL();
-		erroModel = new ErroModel();
 	}
 	
 	public List<Cargo> getLista() {
