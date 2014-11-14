@@ -5,17 +5,11 @@ import java.util.Collection;
 public class Funcionario extends Pessoa {
 
 	private boolean acessoSistema;
-
 	private String usuario;
-
 	private String senha;
-
 	private boolean ativo;
-
 	private Cargo cargo;
-
 	private Collection<Sala> sala;
-
 	private Collection<Atendimento> atendimento;
 
 	public boolean isAcessoSistema() {

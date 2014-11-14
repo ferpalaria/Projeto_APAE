@@ -23,7 +23,7 @@ public class CargoBL {
 		return erroModel;
 	}
 	
-	public List<Cargo> listar(String nome) {
+	public List<Cargo> listar() {
 		return null;
 	}
 
@@ -49,8 +49,15 @@ public class CargoBL {
 		if(cargo.getNome() == null ||
 				cargo.getNome().trim().length() == 0){
 			
+			erroModel.add("nome", "O campo nome deve ser obrigatório");
+			
+		}else if(cargo.getNome().trim().length() > 40){
+			
+			erroModel.add("nome", "O campo nome deve conter um "
+					+ "número abaixo de 40 caracteres");
 		}
-				return erroModel.isValido();
+			
+		return erroModel.isValido();
 	}
 
 }
