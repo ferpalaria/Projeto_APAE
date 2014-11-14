@@ -3,9 +3,7 @@ package apae.entities;
 public class Cargo {
 
 	private int idCargo;
-
 	private String nome;
-
 	private boolean ativo;
 
 	public int getIdCargo() {
