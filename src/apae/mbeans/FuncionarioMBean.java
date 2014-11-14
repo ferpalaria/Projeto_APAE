@@ -50,7 +50,7 @@ public class FuncionarioMBean {
 	}
 
 	public List<Cargo> getCargos() {
-		return null;
+		return funcionarioBL.getCargos();
 		
 		
 	}
