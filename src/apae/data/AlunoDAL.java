@@ -1,6 +1,8 @@
 package apae.data;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class AlunoDAL {
 		
 		String sqlGetAluno = "SELECT idPessoa, numCertidaoNascimento, numCartaoCidadao, "
 				+ "dataMatricula, padrinho, telefonePadrinho, emailPadrinho, bolsaFamilia, "
-				+ "segunda, terca, quarta, quinta, sexta, frequenciaRegular, ativo FROM Aluno WHERE idPessoa = " + Integer.toString(id);
+				+ "segunda, terca, quarta, quinta, sexta, frequenciaRegular, ativo FROM Aluno WHERE idPessoa = " + id;
 		
 		try{
 			Connection con = ConexaoFactory.getConexao();
@@ -78,11 +80,11 @@ public class AlunoDAL {
 		}
 		
 		if(aluno.getIdPessoa() == 0){
-			throw new Exception("Aluno não encontrado!");
+			throw new Exception("Aluno não encontrado!" + id);
 		}
 		
 		String sqlGetPessoa = "SELECT idPessoa, nome, rg, cpf, dataNascimento, sexo, dataCadastro "
-				+ "FROM Pessoa WHERE idPessoa = " + Integer.toString(id);
+				+ "FROM Pessoa WHERE idPessoa = " + id;
 		
 		try{
 			Connection con = ConexaoFactory.getConexao();
@@ -109,12 +111,142 @@ public class AlunoDAL {
 		return aluno;
 	}
 
-	public void inserir(Aluno aluno) {
-
+	public void inserir(Aluno aluno) throws Exception {
+		
+		String sqlInsertAluno = "INSERT INTO Aluno (idPessoa, numCertidaoNascimento, numCartaoCidadao, "
+				+ "dataMatricula, padrinho, telefonePadrinho, emailPadrinho, bolsaFamilia, "
+				+ "segunda, terca, quarta, quinta, sexta, frequenciaRegular, ativo)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		
+		try {
+			Connection con = ConexaoFactory.getConexao();
+			PreparedStatement ps = con.prepareStatement(sqlInsertAluno);
+			ps.setInt(1, aluno.getIdPessoa());
+			ps.setInt(2, aluno.getNumCertidaoNascimento());
+			ps.setInt(3, aluno.getNumCartaoCidadao());
+			ps.setDate(4, new Date( aluno.getDataMatricula().getTime() ));
+			ps.setString(5, aluno.getPadrinho());
+			ps.setString(6, aluno.getTelefonePadrinho());
+			ps.setString(7, aluno.getEmailPadrinho());
+			ps.setBoolean(8, aluno.isBolsaFamilia());
+			ps.setBoolean(9, aluno.isSegunda());
+			ps.setBoolean(10, aluno.isTerca());
+			ps.setBoolean(11, aluno.isQuarta());
+			ps.setBoolean(12, aluno.isQuinta());
+			ps.setBoolean(13, aluno.isSexta());
+			ps.setBoolean(14, aluno.isFrequenciaRegular());
+			ps.setBoolean(15, aluno.isAtivo());
+			
+			
+			int ret = ps.executeUpdate();
+			if (ret != 1) {
+				throw new Exception("Valor não foi inserido por erro de banco."); 
+			}
+			ps.close();
+			
+		} catch (Exception e) {
+			System.err.println("Erro ao incluir os dados Aluno" + e);
+			e.printStackTrace();
+			throw e;
+		}
+		
+		String sqlInsertPessoa = "INSERT INTO Pessoa (idPessoa, nome, rg, cpf, dataNascimento, sexo, dataCadastro)"
+				+ " VALUES (?, ?, ?, ?, ?, ?, ?)";
+		
+		try{
+			Connection con = ConexaoFactory.getConexao();
+			PreparedStatement ps = con.prepareStatement(sqlInsertPessoa);
+			
+			ps.setInt(1, aluno.getIdPessoa());
+			ps.setString(2, aluno.getNome());
+			ps.setString(3, aluno.getRg());
+			ps.setString(4, aluno.getCpf());
+			ps.setDate(5, new Date( aluno.getDataNascimento().getTime() ));
+			ps.setString(6, aluno.getSexo());
+			ps.setDate(7, new Date(aluno.getDataCadastro().getTime()) );
+			
+			int ret = ps.executeUpdate();
+			if (ret != 1) {
+				throw new Exception("Valor não foi inserido por erro de banco."); 
+			}
+			ps.close();
+			
+		} catch (Exception e) {
+			System.err.println("Erro ao incluir os dados Aluno" + e);
+			e.printStackTrace();
+			throw e;
+		}
+		
+		
 	}
 
-	public void atualizar(Aluno aluno) {
-
+	public void atualizar(Aluno aluno) throws Exception {
+		String sqlUpdateAluno = "UPDATE Aluno SET idPessoa = ?, numCertidaoNascimento = ?, numCartaoCidadao = ?, "
+				+ "dataMatricula = ?, padrinho = ?, telefonePadrinho = ?, emailPadrinho = ?, bolsaFamilia = ?, "
+				+ "segunda = ?, terca = ?, quarta = ?, quinta = ?, sexta = ?, frequenciaRegular = ?, ativo = ? "
+				+ "WHERE idPessoa = " + aluno.getIdPessoa();
+		
+		
+		try {
+			Connection con = ConexaoFactory.getConexao();
+			PreparedStatement ps = con.prepareStatement(sqlUpdateAluno);
+			ps.setInt(1, aluno.getIdPessoa());
+			ps.setInt(2, aluno.getNumCertidaoNascimento());
+			ps.setInt(3, aluno.getNumCartaoCidadao());
+			ps.setDate(4, new Date( aluno.getDataMatricula().getTime() ));
+			ps.setString(5, aluno.getPadrinho());
+			ps.setString(6, aluno.getTelefonePadrinho());
+			ps.setString(7, aluno.getEmailPadrinho());
+			ps.setBoolean(8, aluno.isBolsaFamilia());
+			ps.setBoolean(9, aluno.isSegunda());
+			ps.setBoolean(10, aluno.isTerca());
+			ps.setBoolean(11, aluno.isQuarta());
+			ps.setBoolean(12, aluno.isQuinta());
+			ps.setBoolean(13, aluno.isSexta());
+			ps.setBoolean(14, aluno.isFrequenciaRegular());
+			ps.setBoolean(15, aluno.isAtivo());
+			
+			
+			int ret = ps.executeUpdate();
+			if (ret == 0) {
+				System.out.println(ret);
+				throw new Exception("Valor não foi atualizado por erro de banco."); 
+			}
+			ps.close();
+			
+		} catch (Exception e) {
+			System.err.println("Erro ao atualizar os dados Aluno" + e);
+			e.printStackTrace();
+			throw e;
+		}
+		
+		String sqlUpdatePessoa = "UPDATE Pessoa SET idPessoa = ?, nome = ?, rg = ?, cpf = ?, dataNascimento = ?, sexo = ?, dataCadastro = ? "
+				+ "WHERE idPessoa = " + aluno.getIdPessoa();
+		
+		try{
+			Connection con = ConexaoFactory.getConexao();
+			PreparedStatement ps = con.prepareStatement(sqlUpdatePessoa);
+			
+			ps.setInt(1, aluno.getIdPessoa());
+			ps.setString(2, aluno.getNome());
+			ps.setString(3, aluno.getRg());
+			ps.setString(4, aluno.getCpf());
+			ps.setDate(5, new Date(aluno.getDataNascimento().getTime()));
+			ps.setString(6, aluno.getSexo());
+			ps.setDate(7, new Date(aluno.getDataCadastro().getTime()) );
+			
+			int ret = ps.executeUpdate();
+			if (ret == 0) {
+				throw new Exception("Valor não foi atualizado por erro de banco."); 
+			}
+			ps.close();
+			
+		} catch (Exception e) {
+			System.err.println("Erro ao atualizar os dados Aluno" + e);
+			e.printStackTrace();
+			throw e;
+		}
 	}
 
 }

@@ -1,0 +1,99 @@
+CREATE TABLE Aluno (
+	numCertidaoNascimento INTEGER,
+	numCartaoCidadao INTEGER,
+	dataMatricula DATE,
+	padrinho VARCHAR(20),
+	telefonePadrinho VARCHAR(20),
+	emailPadrinho VARCHAR(30),
+	bolsaFamilia BOOL,
+	segunda BOOL,
+	terca BOOL,
+	quarta BOOL,
+	quinta BOOL,
+	sexta BOOL,
+	frequenciaRegular BOOL,
+	ativo BOOL
+)
+
+ALTER TABLE Aluno ADD idPessoa INTEGER FIRST; --FK de Pessoa
+ALTER TABLE Aluno ADD idSala INTEGER AFTER idPessoa --FK da Sala
+
+
+INSERT INTO Aluno (idPessoa, numCartaoCidadao, numCertidaoNascimento) values (104, 1231123, 1231231);
+INSERT INTO Pessoa (idPessoa, nome) VALUES (104, 'Miguel');
+
+CREATE TABLE Atendimento (
+	idAtendimento integer,
+	descricao VARCHAR(300),
+	dataAtendimento DATE,
+	dataCadastro DATE
+)
+
+CREATE TABLE Cargo (
+	idCargo INTEGER,
+	nome VARCHAR(10),
+	ativo bool
+)
+
+CREATE TABLE Endereco (
+	idPessoa INTEGER,
+	rua VARCHAR(30),
+	numero VARCHAR(10),
+	bairro VARCHAR(20),
+	cep VARCHAR(10),
+	municipio VARCHAR(15),
+	estado CHAR(2)
+)
+
+CREATE TABLE Funcionario (
+	acessoSistema BOOL,
+	usuario VARCHAR(20),
+	senha VARCHAR(30),
+	ativo BOOL
+)
+
+CREATE TABLE HipoteseDiagnostico (
+	idHipoteseDiagnostico INTEGER,
+	descricao VARCHAR (300),
+	ativo BOOL
+)
+
+CREATE TABLE Pessoa (
+	idPessoa INTEGER,
+	nome VARCHAR(20),
+	rg VARCHAR(15),
+	cpf VARCHAR(15),
+	dataNascimento DATE,
+	sexo CHAR(1),
+	dataCadastro DATE
+)
+
+CREATE TABLE Projeto (
+	idProjeto INTEGER,
+	descricao VARCHAR(300),
+	ativo BOOL
+)
+
+CREATE TABLE Sala (
+	idSala INTEGER,
+	numero INTEGER,
+	descricao VARCHAR(300),
+	ativo BOOL
+)
+
+CREATE TABLE Telefone (
+	idPessoa INTEGER,
+	numero VARCHAR(15)
+)
+
+CREATE TABLE TipoAtendimento (
+	idTipoAtendimento INTEGER,
+	descricao VARCHAR(300),
+	ativo BOOL
+)
+
+CREATE TABLE TipoRelatorio (
+	idTipoRelatorio INTEGER,
+	nome varchar (15),
+	ativo BOOL
+)
