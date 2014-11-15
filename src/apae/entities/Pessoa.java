@@ -6,22 +6,14 @@ import java.util.Collection;
 public class Pessoa {
 
 	private int idPessoa;
-
 	private String nome;
-
 	private String rg;
-
 	private String cpf;
-
 	private Date dataNascimento;
-
 	private String sexo;
-
 	private Date dataCadastro;
-
 	private Endereco endereco;
-
-	private Collection<Telefone> telefone;
+    private Collection<Telefone> telefone;
 
 	public int getIdPessoa() {
 		return idPessoa;

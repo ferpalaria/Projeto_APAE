@@ -38,8 +38,22 @@ public class FuncionarioBL {
 	public void atualizar(Funcionario funcionario) {
 
 	}
-
+	// nome | telefone | cargo serão obrigatórios
 	public boolean validar(Funcionario funcionario) {
+		
+		if(funcionario.getNome() == null ||
+				funcionario.getNome().trim().length() == 0){
+			
+			erroModel.add("nome","O campo nome deve ser obrigatório");
+		}else if(funcionario.getNome().length() > 40){
+			
+			erroModel.add("nome", "O campo nome deve conter entre um número"
+					+ "abaixo do que 40 caracteres1");			
+		}
+		
+		if(funcionario.getTelefone() == null){
+			
+		}
 		
 		return erroModel.isValido();
 	}

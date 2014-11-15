@@ -3,7 +3,6 @@ package apae.entities;
 public class Telefone {
 
 	private int idPessoa;
-
 	private String numero;
 
 	public int getIdPessoa() {
