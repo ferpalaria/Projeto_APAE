@@ -12,11 +12,24 @@ public class TipoAtendimentoMBean {
 	private TipoAtendimentoBL tipoAtendimentoBL;
 
 	public List<TipoAtendimento> getLista() {
-		return null;
+		
+		
+		return tipoAtendimentoBL.listar();
 	}
 
 	public String salvar() {
-		return null;
+		 if(tipoAtendimentoBL.validar(tipoAtendimento)){
+			 if(tipoAtendimento.getIdTipoAtendimento() == 0);{
+				 tipoAtendimentoBL.inserir(tipoAtendimento);
+				 
+			 }else{
+				 
+				 tipoAtendimentoBL.atualizar(tipoAtendimento);
+			 }
+			 
+		 		 return "Nome XHTML listagem" ;
+		 }
+	
 	}
 
 	public String editar(int id) {
