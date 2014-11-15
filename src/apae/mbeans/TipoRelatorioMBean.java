@@ -6,7 +6,7 @@ import apae.businesslogics.TipoRelatorioBL;
 import java.util.List;
 
 public class TipoRelatorioMBean {
-
+// Teste
 	private TipoRelatorio tipoRelatorio;
 
 	private TipoRelatorioBL tipoRelatorioBL;
